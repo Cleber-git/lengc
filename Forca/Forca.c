@@ -4,38 +4,30 @@
 int main(){
 
     char palavrasecreta[20];
-
     sprintf(palavrasecreta, "MELANCIA");
+
     int ganhou = 0;
 
-    int tentativas = -1;
+    int tentativas = 0;
     char chutes[26];
-    do
-    {
-        
+    do{   
+        int tem = 0;
         char chute;
         scanf(" %c", &chute);
 
-
-        tentativas ++;
-        chutes[tentativas] = chute;
         for (int i = 0; i < strlen(palavrasecreta); i++){
-            int acertou = 0;
+            
             for (int j = 0; j < tentativas; j++){
-                if (chutes[j] == palavrasecreta[i]){
-                    acertou = 1;
-                    break;
+                chutes[i] = chute;
+                if(chutes[j] == palavrasecreta[i]){
+                    tem = 1;
                 }
+                
             }
             
-        
-            if (acertou){
-                printf("%c ", palavrasecreta[i]);
-            }else{
-                printf("_ ");
-            }   
         }
-            printf("\n");
+        
+    
             
     }while (!ganhou);
 }
