@@ -51,6 +51,7 @@ void DesenhaForca(char palavrasecreta[20]){
     }   
 }
 
+
 void EscolhePalavra(char palavrasecreta[20]){
     sprintf(palavrasecreta, "caja");
 
@@ -72,7 +73,6 @@ int main(){
         if (tentativas>5){
             printf("Você escedeu o número de tentativas\n");
             break;
-        }        
-        
+        }                
     }
 }
