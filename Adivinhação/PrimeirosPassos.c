@@ -4,6 +4,7 @@
 
 
 int main(){    
+    
     // immprimir o cabeçalho na tela
     printf("**********************************\n");
     printf("*BEM VINDO AO JOGO DE ADIVINHAÇÃO*\n");
