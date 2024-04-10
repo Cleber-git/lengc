@@ -23,7 +23,6 @@ int main(){
 
     prova = game(secret_Number, prova, tentativas);
 
-
     if(prova != 1){
         bad();
     }
