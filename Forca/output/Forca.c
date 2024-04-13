@@ -27,7 +27,6 @@ void verifica(char arquivo[20], char palavras[15])
     {
         fscanf(p,"%s", palavras);
     }
-    printf("%s", palavras);
     fclose(p);
 }
 
@@ -72,11 +71,56 @@ void escolhe_palavra(char palavras[15])
     }
 }
 
+void forca(char palavras[15])
+{
+  //Espaço para variaveis
+    int t = strlen(palavras);
+    int acertou=0;
+    int enforcou=0;
+    int tentativas;
+    char chutes[26];
+  //Laço 
+
+    do
+    {
+        printf("Digite aqui:");
+        for (int i=0;i<t;i++)
+        {
+            int achou=0;
+            for(int j=0;j<tentativas;j++)
+            {
+                if(palavras[i]==chutes[j])
+                {
+                    achou=1;
+                    break;
+                }
+            }
+
+            if (!achou)
+            {
+                printf("_ ");
+            }
+
+            else
+            {
+                printf("%c ", palavras[i]);
+            }
+        }
+
+        scanf(" %c", &chutes[tentativas]);
+        tentativas++;
+        printf("\n");
+
+    }while(!acertou && !enforcou);
+}
 int main()
 {
 
     char palavra_secreta[15];
+
     escolhe_palavra(palavra_secreta);
+
+    forca (palavra_secreta);
 
     return 0;
 }
