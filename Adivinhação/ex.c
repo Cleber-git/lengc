@@ -1,9 +1,6 @@
 #include <stdio.h>
 
-
 int main(){
-
-
 
     int inteiro;
     printf("Escolha um número a ser calculado: ");
@@ -14,5 +11,5 @@ int main(){
 
     }
 
-
+    return 0;
 }
