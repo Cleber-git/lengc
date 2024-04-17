@@ -72,12 +72,82 @@ void escolhe_palavra(char palavras[15])
     }
 }
 
-void forca(char palavras[15])
+int enforcou(char palavras[15], char chutes[26], int tenta)
+{
+  //variaveis
+    int tem=0;
+    int tanto=0;
+
+  //Laço
+
+    for (int i=0;i<tenta;i++)
+    {
+        tem=0;
+        for(int j=0;j<strlen(palavras);j++)
+        {
+            if(chutes[i]==palavras[j])
+            {
+                tem=1;
+                break;
+            }
+        }
+
+        if(!tem)
+        {
+            tanto++;
+        }
+    }
+
+    if(tanto>6)
+    {
+       return 1;
+    }
+
+    else
+    {
+       return 0;
+    }
+}
+
+int acertou (char palavras[15], char chutes[26],int* t)
+{
+  //Variaveis  
+
+    char compara[15];
+     for (int i = 0; i < 15; i++) 
+     {
+        compara[i] = '\0';
+     }
+    int retorno=1;
+
+    for (int i=0;i<strlen(palavras);i++)
+    {
+        for (int j=0;j<=(*t);j++)
+        {
+            if(palavras[i]==chutes[j])
+            {
+                compara[i]=chutes[j];
+                break;
+            }
+        }
+    }
+
+     for (int i = 0; i < strlen(palavras); i++)
+    {
+        if (palavras[i] != compara[i])
+        {
+            retorno = 0;
+            break;
+        }
+    }
+
+    return retorno;
+}
+
+void forca(char palavras[15]) 
 {
   //Espaço para variaveis
     int t = strlen(palavras);
-    int acertou=0;
-    int enforcou=0;
     int tentativas;
     char chutes[26];
   //Laço 
@@ -115,5 +185,6 @@ void forca(char palavras[15])
         printf("\n");
         
 
-    }while(!acertou && !enforcou);
+    }while(!acertou(palavras, chutes,&tentativas) && !enforcou(palavras, chutes, tentativas));
 }
+
